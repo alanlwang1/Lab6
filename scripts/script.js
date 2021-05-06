@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
        
         let newPost;  
 
-  
-        // CODE GOES HERE vvv
         // Get reference to <main> 
         let main = document.querySelector("main"); 
 
@@ -36,12 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Append journal entry to main 
         main.appendChild(newPost); 
-
-
-
-
-
-        // CODE GOES HERE ^^^
 
 
 

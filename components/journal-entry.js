@@ -68,28 +68,36 @@ class JournalEntry extends HTMLElement {
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
    */
   set entry(entry) {
+
+    //Get shadow root 
+    let shadow = this.shadowRoot; 
+
     /* 
-     * TODO: set the entry title, date, and content fields in this component
+     *  set the entry title, date, and content fields in this component
      */
+    let entryArticle = shadow.querySelector(".entry");  
+    let entryTitle = shadow.querySelector(".entry-title"); 
+    let entryDate = shadow.querySelector(".entry-date"); 
+    let entryContent = shadow.querySelector(".entry-content");
     
-    // CODE GOES HERE
+    entryTitle.textContent = entry.title; 
+    entryDate.textContent = entry.date;
+    entryContent.textContent = entry.content; 
 
     if (entry.image) {
+      // if the entry contains an image resource,
       let entryImage;
-      /*
-       * TODO: if the entry contains an image resource,
-       * 1. create an image element with the correct class
-       * 2. set the image src and alt attributes
-       * 3. append the image element to the appropriate location in this component
-       */
+ 
+      // create an image element with the correct class
+      entryImage = document.createElement('IMG'); 
+      entryImage.className = 'entry-image'; 
 
-      // CODE GOES HERE vvv
+      // set the image src and alt attributes
+      entryImage.src = entry.image.src; 
+      entryImage.alt = entry.image.alt; 
 
-
-
-
-
-      // CODE GOES HERE ^^^
+      //append the image element to the appropriate location in this component
+      entryArticle.appendChild(entryImage); 
 
       /* ------------- do not edit this code, it is for your debugging purposes ------------- */
       try {
@@ -101,22 +109,19 @@ class JournalEntry extends HTMLElement {
 
     }
     if (entry.audio) {
+      // if the entry contains an audio resource,
       let entryAudio;
-      /*
-       * TODO: if the entry contains an audio resource,
-       * 1. create an audio element with the correct class
-       * 2. set the audio src and enable audio controls
-       * 3. append the audio element to the appropriate location in this component
-       */
 
-      // CODE GOES HERE vvv
+      // create an audio element with the correct class
+      entryAudio = document.createElement("AUDIO"); 
+      entryAudio.className = 'entry-audio'; 
 
+      // set the audio src and enable audio controls
+      entryAudio.src = entry.audio; 
+      entryAudio.controls = true; 
 
-
-
-
-
-      // CODE GOES HERE ^^^
+      // append the audio element to the appropriate location in this component
+      entryArticle.appendChild(entryAudio); 
       
 
       
